@@ -1,0 +1,101 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="utf-8")
+    |     
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    |     
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    |     
+    title 大连(连连网)
+    // Bootstrap
+    link(href="/stylesheets/bootstrap.min.css", rel="stylesheet")
+    |     
+    link(rel="stylesheet", type="text/css", href="/stylesheets/users/userHome.css")
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js")
+      |       
+      script(src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js")
+  |   
+  body
+    .header
+      .logoMenu
+        .logo
+          a(href="/users")
+            span.glyphicon.glyphicon-home
+            | 连连
+        |       
+        .headerMenuContent
+          .sign
+            -if(username)
+              a(href="users/loginOut") 退出登录
+              a(href="/users/mine/?type=myFavorit") 我的收藏
+              a(href="users/mine")=username
+              a 欢迎
+            -else
+              a(href="/users/sign") 立即注册         
+              a(href="/users/login") 登录          
+              a.glyphicon.glyphicon-user(href="/users/login")
+          .headerMenu
+            ul
+              li
+                a(href="/users/rooms/?type=newroom") 新房
+              |             
+              li
+                a(href="/users/rooms/?type=oldroom") 二手房
+              |             
+              li
+                a(href="/users/rooms/?type=rentroom") 租房
+      |     
+      .mainTitle
+        h1 连接每个家的故事
+      |     
+      form(action="/users/searchRoom" method="get").search
+        span
+          input#searchText(type="text",name="searchText" placeholder="请输入地点进行查询")
+        |       
+        span
+          select#searchType(name="roomType")
+            option(value="allType") 开始找房
+            |           
+            option(value="newRoom") 新房
+            |           
+            option(value="oldRoom") 二手房
+            |           
+            option(value="rentRoom") 租房
+        |       
+        a.searchBtn(href="javascript:void(0)",onclick="$('.search').submit()")
+          span.glyphicon.glyphicon-zoom-in
+    |   
+    .contentMenu
+      .container
+        .row
+          section.col-sm-4
+            a.newRoomBg(href="/users/rooms/?type=newroom")
+              img(src="/images/home.png")
+            |           
+            a(href="/users/rooms/?type=newroom") 找新房
+          |         
+          section.col-sm-4
+            a.newRoomBg(href="/users/rooms/?type=oldroom")
+              img(src="/images/home (1).png")
+            |           
+            a(href="/users/rooms/?type=oldroom") 找二手房
+          |         
+          section.col-sm-4
+            a.newRoomBg(href="/users/rooms/?type=rentroom")
+              img(src="/images/home (2).png")
+            |           
+            a(href="/users/rooms/?type=rentroom") 想租房
+    |   
+    .footer
+      .footInfo
+        | 大连连连购房网
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="/javascripts/jquery-3.1.1.min.js")
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src="/javascripts/bootstrap.min.js")
+    |     
+    script(src="/javascripts/userHome.js")

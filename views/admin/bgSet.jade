@@ -1,0 +1,8 @@
+.content
+  form.form-horizontal(action="/admin/bgSet" method="post" enctype="multipart/form-data")
+    .form-group
+      label.col-sm-2.control-label(for='pic') 选择背景图
+      input#pic.col-sm-2(type='file',name="pic")
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-default(type="submit") 上传

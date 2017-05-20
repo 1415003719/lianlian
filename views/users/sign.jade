@@ -1,0 +1,61 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="utf-8")
+    |     
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    |     
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    |     
+    title 大连(连连网)
+    // Bootstrap
+    link(href="/stylesheets/bootstrap.min.css", rel="stylesheet")
+    |     
+    link(rel="stylesheet", type="text/css", href="/stylesheets/users/userSign.css")
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js")
+      |       
+      script(src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js")
+  |   
+  body
+    .header
+      h2
+        a(href="/users") 连连
+    |   
+    .container
+      h3 用户注册
+      |     
+      form.form-horizontal
+        .form-group
+          .col-sm-3.col-sm-offset-4
+            p.warnText
+        |       
+        .form-group
+          label.col-sm-2.col-sm-offset-2.control-label(for="username") 用户名
+          |         
+          .col-sm-3
+            input#username.form-control(type="text", placeholder="用户名")
+        |       
+        .form-group
+          label.col-sm-2.col-sm-offset-2.control-label(for="password") 密码
+          |         
+          .col-sm-3
+            input#password.form-control(type="password", placeholder="密码")
+        |       
+        .form-group
+          label.col-sm-2.col-sm-offset-2.control-label(for="surepassword") 确认密码
+          |         
+          .col-sm-3
+            input#surepassword.form-control(type="password", placeholder="确认密码")
+        |       
+        .form-group
+          .col-sm-offset-4.col-sm-5
+            a.btn.btn-default.sign(href="javascript:void(0)") 注册
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="/javascripts/jquery-3.1.1.min.js")
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src="/javascripts/bootstrap.min.js")
+    |     
+    script(src="/javascripts/userSign.js")

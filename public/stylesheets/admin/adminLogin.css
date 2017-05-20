@@ -1,0 +1,36 @@
+body{
+	background-color: rgba(66,228,244,1);
+}
+.title{
+	color: #fff;
+	display: block;
+	width: 340px;
+	text-align: center;
+	margin: 160px auto;
+}
+.LoginContent{
+	width: 340px;
+	height: 250px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -170px;
+	margin-top: -125px;
+	background-color:#fff;
+}
+.form-horizontal{
+	margin-top: 20px;
+	padding: 0 20px 0 0;
+}
+.loginbtn{
+	display: block;
+	width: 200xpx !important;
+}
+.loginWarn{
+	padding: 5px;
+	width: 100%;
+	height: 30px;
+/*	border: 1px solid red;*/
+	text-align: center;
+	color: red;
+}

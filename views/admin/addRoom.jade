@@ -1,0 +1,28 @@
+block addRoom
+.content
+  form.form-horizontal(action="/admin/addRoom" method="post" enctype="multipart/form-data")
+    .form-group
+      label.col-sm-2.control-label(for='abouts') 描述
+      .col-sm-6
+        textarea#abouts.form-control(rows='4',name="abouts", type='text', placeholder='描述')
+    .form-group
+      label.col-sm-2.control-label(for='address') 地址
+      .col-sm-6
+        textarea#address.form-control(rows='3',name="address", type='text', placeholder='地址')
+    .form-group
+      label.col-sm-2.control-label(for='price') 价格
+      .col-sm-1
+        input#price.form-control(type='text',name="price", placeholder='价格')
+    .form-group
+      label.col-sm-2.control-label 类型
+      .col-sm-2
+        select.form-control.roomType(name="roomType")
+          option(value='新房') 新房
+          option(value='二手房') 二手房
+          option(value='租房') 租房
+    .form-group
+      label.col-sm-2.control-label(for='pic') 缩略图
+      input#pic.col-sm-2(type='file',name="pic",)
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-default(type="submit") 保存

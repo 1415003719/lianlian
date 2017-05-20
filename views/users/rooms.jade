@@ -1,0 +1,91 @@
+doctype html
+html(lang="zh-CN")
+  head
+    meta(charset="utf-8")
+    |     
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    |     
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    |     
+    title 大连(连连网)
+    // Bootstrap
+    link(href="/stylesheets/bootstrap.min.css", rel="stylesheet")
+    |     
+    link(rel="stylesheet", type="text/css", href="/stylesheets/users/rooms.css")
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js")
+      |       
+      script(src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js")
+  |   
+  body
+    .header
+      .logoMenu
+        .logo
+          a(href="/users")
+            span.glyphicon.glyphicon-home
+            | 连连
+        |         
+        .headerMenuContent
+          .sign
+            -if(username)
+              a(href="/users/loginOut") 退出登录
+              a(href="/users/mine/?type=myFavorit") 我的收藏
+              a(href="/users/mine")=username
+              a 欢迎
+            -else
+              a(href="/users/sign") 立即注册
+              |             
+              a(href="/users/login") 登录
+              |             
+              a.glyphicon.glyphicon-user(href="#")
+          |           
+          .headerMenu
+            ul
+              li
+                a(href="/users/rooms/?type=newroom") 新房
+              |               
+              li
+                a(href="/users/rooms/?type=oldroom") 二手房
+              |               
+              li
+                a(href="/users/rooms/?type=rentroom") 租房
+    |     
+    .content
+      .container
+        .row
+          span.roomtype.col-sm-3.col-sm-offset-1=sendType
+        -each data in datas        
+          .row.room
+            .roomPic.col-sm-3.col-sm-offset-1
+              img(src="/#{data.roomPic}")
+            |           
+            .about.col-sm-4
+              h4=data.address
+              |             
+              p=data.abouts
+              |             
+              div
+                button.btn.btn-success(type="button", disabled="disabled")=data.roomType
+                |               
+                a.btn.btn-info.addFavorit(href="javascript:void(0)",type="button",data-roomId="#{data.id}",data-roomPic="#{data.roomPic}",data-roomType="#{data.roomType}",data-roomPrice="#{data.price}",data-roomAbouts="#{data.abouts}",data-roomAddress="#{data.address}") 添加收藏
+            |           
+            .price.col-sm-3
+              span=data.price
+              -if(data.roomType=="新房")
+                p 元/平
+              -if(data.roomType=="二手房")
+                p 万
+              -if(data.roomType=="租房")
+                p 元/月
+    |     
+    .footer
+      .footInfo
+        | 大连连连购房网
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src="/javascripts/jquery-3.1.1.min.js")
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src="/javascripts/bootstrap.min.js")
+    |     
+    script(src="/javascripts/addFavorit.js")

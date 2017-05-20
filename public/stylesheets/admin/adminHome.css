@@ -1,0 +1,142 @@
+@font-face{
+	font-family: myFont;
+	src:url("./../../font/glyphicons-halflings-regular.eot");
+}
+.asideMenu a,.asideMenu a:link{
+	color: #000;
+	text-decoration: none;
+}
+.asideMenu a:hover{
+	color: blue;
+}
+.header{
+	height: 50px;
+	width: 100%;
+/*	border: 1px solid red;*/
+}
+.asideMenu{
+	width: 199px;
+	position: absolute;
+	/*border: 1px solid red;*/
+	bottom: 0;
+	left: 0;
+	top:52px;
+	background-color: rgba(238,238,238,0.98);
+	border-right: 1px solid #ccc;
+}
+.oneMenuContainer,.twoMenuContainer{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.oneMenu,.twoMenu{
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	cursor: pointer;
+}
+.oneMenuContainer li{
+	display: block;
+}
+.oneMenu a,.twoMenu a{
+	display: block;
+	width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.twoMenu a{
+	padding-left: 30px;
+}
+.oneMenu a{
+	padding-left: 10px;
+}
+.oneMenu+li{
+	display: none;
+}
+
+.content{
+	/*border: 1px solid red;*/
+	padding: 20px;
+	position: absolute;
+	right: 0;
+	top: 52px;
+	bottom: 0;
+	left: 200px;
+	background-color: #fff;
+}
+/*所有房产信息板块*/
+.content{
+	background-color: #f5f5f5;
+}
+.roomTypeMenu{
+	width: 100%;
+	height: 60px;
+/*	border: 1px solid #000;*/
+	margin-top: -20px;
+}
+.roomTypeMenu ul{
+	height: 100%;
+}
+.roomTypeMenu li{
+	list-style-type: none;
+	display: inline;
+	height: 60px;
+}
+.roomTypeMenu li a{
+	display: inline-block;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	text-decoration: none;
+	padding: 0 15px;
+}
+.roomTypeMenu li a:hover{
+	background-color: rgba(238,238,238,0.98);
+}
+.roomInfo{
+	position: absolute;
+	right: 20px;
+	top: 52px;
+	bottom: 0;
+	left: 20px;
+	background-color: #fff;
+	padding: 20px 30px;
+}
+.roomTable{
+	width: 100%;
+}
+.roomTable th,.roomTable td{
+	text-align: center;
+}
+.roomTable td,.roomTable th{
+	border: 1px solid #ccc;
+	padding: 5px 5px;
+}
+.roomTable th{
+	height: 60px;
+}
+.roomTable td{
+	height: 120px;
+}
+.fenye{
+	float: right;
+}
+.tool{
+	margin-right: 15px;
+	cursor: pointer;
+	color: blue;
+}
+td img{
+	width: 180px;
+	height: 110px;
+}
+
+.deletModal{
+	width: 400px;
+	margin-top: 200px;
+}
+
+.users th,.users td{
+	text-align: center;
+}
+

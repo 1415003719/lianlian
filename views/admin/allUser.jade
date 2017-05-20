@@ -1,0 +1,32 @@
+.content
+  table.table.table-bordered.users
+    tr
+      th ID
+      |       
+      th 账户名
+      |       
+      th 开户时间
+      |       
+      th
+    -each data in datas.items     
+      tr
+        td=data.id
+        |       
+        td=data.username
+        |       
+        td=data.date
+        |       
+        td
+          a.glyphicon.glyphicon-trash.deleteUser(data-userId="#{data.id}",href="javascript:void(0)", aria-hidden="true")
+  |   
+  nav.fenye(aria-label='Page navigation')
+    ul.pagination
+      li
+        a(href='/admin/?type=allUser&page='+(datas.currPage-1), aria-label='Previous')
+          span(aria-hidden='true') 上一页
+      -for(var p=0;p<datas.count;p++)
+        li
+          a(href='/admin/?type=allUser&page='+p)=p+1
+      li
+        a(href='/admin/?type=allUser&page='+(datas.currPage+1), aria-label='Next')
+          span(aria-hidden='true') 下一页

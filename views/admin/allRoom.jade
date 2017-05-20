@@ -1,0 +1,94 @@
+.content
+  .roomTypeMenu
+    ul
+      li
+        a(href='/admin/?type=allRoom&page=0&roomType=newRoom') 新房
+      li
+        a(href='/admin/?type=allRoom&page=0&roomType=oldRoom') 二手房
+      li
+        a(href='/admin/?type=allRoom&page=0&roomType=rentRoom') 租房
+  .roomInfo
+    .room
+      table.roomTable
+        tr.row
+          th.col-sm-1 ID
+          th.col-sm-1 类型
+          th.col-sm-2 缩略图
+          th.col-sm-3 描述
+          th.col-sm-2 地址
+          th.col-sm-1 价格
+          th.col-sm-2 操作
+        -each room in data.items
+          tr.row
+            td.col-sm-1=room.id
+            td.col-sm-1=room.roomType
+            td.col-sm-2
+              img(src='/#{room.roomPic}')
+            td.col-sm-3=room.abouts
+            td.col-sm-2=room.address
+            -if(roomType=="newRoom")
+              td.col-sm-1 #{room.price}¥/平
+            -else if(roomType=="oldRoom")
+              td.col-sm-1 #{room.price}万
+            -else if(roomType=="rentRoom")
+              td.col-sm-1 #{room.price}¥/月
+            td.col-sm-2
+              span.glyphicon.glyphicon-pencil.tool(aria-hidden='true',data-toggle="modal",data-target="#myModal" data-whatever="#{room.id}")
+              span.glyphicon.glyphicon-trash.tool(aria-hidden='true',data-toggle="modal",data-target="#deletModal" data-whatever="#{room.id}")
+    nav.fenye(aria-label='Page navigation')
+      ul.pagination
+        li
+          a(href='/admin/?type=allRoom&page='+(data.currPage-1)+'&roomType=#{roomType}', aria-label='Previous')
+            span(aria-hidden='true') 上一页
+        -for(var p=0;p<data.count;p++)
+          li
+            a(href='/admin/?type=allRoom&page='+p+'&roomType=#{roomType}')=p+1
+        li
+          a(href='/admin/?type=allRoom&page='+(data.currPage+1)+'&roomType=#{roomType}', aria-label='Next')
+            span(aria-hidden='true') 下一页
+    #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#myModalLabel.modal-title 修改
+          .modal-body
+            form.form-horizontal(action="/admin/updateRoom" method="post" enctype="multipart/form-data")
+              .form-group
+                label.col-sm-2.control-label(for='abouts') 描述
+                .col-sm-9
+                  textarea#abouts.form-control(rows='4',name="abouts", type='text', placeholder='描述')
+              .form-group
+                label.col-sm-2.control-label(for='address') 地址
+                .col-sm-9
+                  textarea#address.form-control(rows='3',name="address", type='text', placeholder='地址')
+              .form-group
+                label.col-sm-2.control-label(for='price') 价格
+                .col-sm-3
+                  input#price.form-control(type='text',name="price", placeholder='价格')
+              .form-group
+                label.col-sm-2.control-label(for='pic') 缩略图
+                input#pic.col-sm-8(type='file',name="pic")
+              input#roomtype.roomtype(name="roomtype" value="#{roomType}" type="text")
+              input#roomid.roomid(name="roomid" value="" type="text")
+              input#currPage.currPage(name="currPage" value="#{data.currPage}" type="number")
+              .form-group
+                .col-sm-offset-2.col-sm-8
+                  button.btn.btn-default(type="submit") 保存
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') 关闭
+    #deletModal.modal(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+      .modal-dialog.deletModal(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+            h4#myModalLabel.modal-title 删除
+          .modal-body
+            form(action="/admin/deletRoom" method="post" enctype="multipart/form-data")
+              input.roomtype(name="roomtype" value="#{roomType}" type="text")
+              input.roomid(name="roomid" value="" type="text")
+              input.currPage(name="currPage" value="#{data.currPage}" type="number")
+              .modal-footer
+                button.btn.btn-default(type='submit') 确定删除

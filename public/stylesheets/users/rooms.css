@@ -1,0 +1,121 @@
+@font-face{
+	font-family: myFont;
+	src:url("./../../font/glyphicons-halflings-regular.eot");
+}
+a,a:link,a:hover,a:visited,a:active{
+	text-decoration: none;
+	color: #fff;
+}
+body{
+	background-color: #393939;
+}
+.header{
+	background: #161616 url(./../../images/bg/bannerV2.jpg) no-repeat;
+    width: 100%;
+    height: 210px;
+    padding-top: 30px;
+    background-attachment: fixed;
+    background-position: center 0;
+    display: block;
+    position: relative;
+    padding: 0 150px;
+}
+.logoMenu{
+	width: 100%;
+	height: 100px;
+	/*border: 1px solid red;*/
+}
+.logo{
+	display: inline-block;
+	color: #fff;
+	width: 300px;
+	height: 50px;
+	font-size: 28px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	margin-top: 40px;
+	margin-left: 20px;
+	font-weight: 900;
+
+}
+.logo a{
+	letter-spacing: 8px;
+}
+.logo span{
+	padding: 5px 5px 0px 5px;
+}
+.headerMenuContent{
+	width: 500px;
+	height: 100%;
+	float: right;
+	/*border: 1px solid blue;*/
+	padding-top: 20px;
+}
+.sign{
+	width: 100%;
+	height: 28px;
+	padding-right: 150px;
+	padding-top: 8px;
+}
+.sign a{
+	float: right;
+	margin-left: 5px;
+}
+.headerMenu{
+	width: 100%;
+	height: 50px;
+	/*border: 1px solid pink;*/
+	line-height: 50px;
+	padding-left: 50px;
+}
+.headerMenu li{
+	font-size: 16px;
+	font-weight: 700;
+	list-style-type: none;
+	display: inline-block;
+	padding: 5px 20px;
+}
+.headerMenu li a:hover{
+	color: #ccc;
+}
+.room{
+	padding: 20px 30px;
+	border-top: 1px solid #ccc;
+}
+.price{
+	text-align: center;
+	line-height: 150px;
+	color: red;
+}
+.price span{
+	font-size: 20px;
+	font-weight: 600;
+}
+.price p{
+	margin: 0;
+	display: inline-block;
+}
+
+.foot{
+	padding-top:30px;
+	width: 100%;
+	height: 100px;
+	background-color: #393939;
+}
+.footInfo{
+	text-align: center;
+	margin:0 auto;
+	height: 50px;
+	width: 300px;
+	color: #888c8e;
+    font-size: 12px;
+}
+
+.content{
+	width: 100%;
+	background: #fff;
+}
+.roomtype{
+	padding: 10px;
+	font-size: 20px;
+	font-weight: 600;
+}
